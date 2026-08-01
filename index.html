@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zoldan — In arrivo</title>
+<meta name="description" content="Il nuovo sito di Zoldan è in arrivo. Cucine classiche e componibili su misura. Ambiente 80 di Soravito E. & C. S.n.c.">
+<meta name="robots" content="noindex,nofollow">
+
+<!-- Fonts (stesso tema Cariana) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #1a1a1a;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Background con overlay scuro */
+.bg-image {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('https://skylhub.github.io/zoldan/wp-content/uploads/2018/06/01.jpg') center/cover no-repeat; 
+    opacity: 0.15;
+    z-index: -2;
+}
+
+.bg-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(26,26,26,0.95) 0%, rgba(20,20,20,0.97) 100%);
+    z-index: -1;
+}
+
+/* Container principale */
+.coming-soon {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 700px;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Logo con sfondo bianco */
+.logo {
+    margin-bottom: 50px;
+    background: #fff;
+    padding: 15px 30px;
+    border-radius: 6px;
+    display: inline-block;
+}
+.logo img {
+    height: 60px;
+    width: auto;
+    display: block;
+}
+
+/* Heading */
+.coming-soon h1 {
+    font-family: "Playfair Display", "Times New Roman", serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Sottotitolo */
+.coming-soon .subtitle {
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    font-weight: 300;
+    color: #b0b0b0;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.coming-soon .tagline {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 50px;
+}
+
+/* Divider */
+.divider {
+    width: 60px;
+    height: 2px;
+    background: #c9a96e;
+    margin: 30px auto;
+    border: none;
+}
+
+/* Contatti */
+.contacts {
+    margin-top: 40px;
+    padding: 30px 20px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.contacts h2 {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #c9a96e;
+    margin-bottom: 25px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    font-size: 1rem;
+    color: #d0d0d0;
+}
+
+.contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.contact-item i {
+    color: #c9a96e;
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.contact-item a {
+    color: #d0d0d0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #c9a96e;
+}
+
+/* Social */
+.social {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social a {
+    color: #909090;
+    font-size: 1.4rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social a:hover {
+    color: #c9a96e;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer-info {
+    margin-top: 50px;
+    font-size: 0.75rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.8;
+}
+
+/* Animazione entrance */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.coming-soon > * {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+}
+.coming-soon > *:nth-child(1) { animation-delay: 0.1s; }
+.coming-soon > *:nth-child(2) { animation-delay: 0.3s; }
+.coming-soon > *:nth-child(3) { animation-delay: 0.5s; }
+.coming-soon > *:nth-child(4) { animation-delay: 0.7s; }
+.coming-soon > *:nth-child(5) { animation-delay: 0.9s; }
+.coming-soon > *:nth-child(6) { animation-delay: 1.1s; }
+.coming-soon > *:nth-child(7) { animation-delay: 1.3s; }
+
+/* Responsive */
+@media (max-width: 600px) {
+    .contact-item {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+    .social {
+        gap: 20px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-image"></div>
+<div class="bg-overlay"></div>
+
+<div class="coming-soon">
+
+    <!-- Logo con sfondo bianco -->
+    <div class="logo">
+<img src="https://skylhub.github.io/zoldan/wp-content/uploads/2018/06/zoldan_logo.png" alt="Zoldan" onerror="this.style.display='none'">
+
+<img src="zoldan_logo.png" alt="Zoldan" onerror="this.style.display='none'">
+    </div>
+
+    <!-- Sottotitolo -->
+    <p class="subtitle">Il nuovo sito Zoldan è in costruzione</p>
+    <p class="tagline">Pret-a-Porter e Cucine Classiche</p>
+
+    <hr class="divider">
+
+    <!-- Contatti -->
+    <div class="contacts">
+        <h2>Contattaci</h2>
+
+     <!--   <div class="contact-item">
+            <i class="fa fa-phone"></i>
+            <a href="tel:+393356287202">+39 3356287202</a>
+        </div> -->
+
+        <div class="contact-item">
+            <i class="fa fa-envelope"></i>
+            <a href="mailto:zoldan2004@libero.it">zoldan2004@libero.it</a>
+        </div>
+    </div>
+
+    <!-- Social -->
+    <div class="social">
+        <a href="https://www.facebook.com/ZoldanPretaporter" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa fa-facebook"></i>
+        </a>
+        <a href="https://www.youtube.com/watch?v=6jV0vVQ3bMU" target="_blank" rel="noopener" aria-label="YouTube">
+            <i class="fa fa-youtube-play"></i>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-info">
+        Ambiente 80 di Soravito E. &amp; C. S.n.c.<br>
+        P. Iva 00976620302
+    </div>
+
+</div>
+
+</body>
+</html>
